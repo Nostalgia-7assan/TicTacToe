@@ -167,7 +167,7 @@ int main ()
         float x = 0 ;
         cout << "Enter number from 1 to 16\n" ;
         // confrim that the place is available
-        while(game.isPlayed(x))
+        do
         {
             cout << userX << " turn to play : " ;
             cin >> x ;
@@ -179,9 +179,8 @@ int main ()
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "invalid input\n";
-            }
-              
-        }
+            } 
+        } while(game.isPlayed(x)) ;
         // print the bord with the new place
         game.setGame(x,'x');
         game.printGame();
@@ -198,8 +197,7 @@ int main ()
         }
 
         // repeat the process again with the secend player
-        x = 0 ;
-        while(game.isPlayed(x))
+        do
         {
             cout << userO << " turn to play : " ;
             cin >> x ;
@@ -210,8 +208,8 @@ int main ()
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "invalid input\n";
-            }
-        }
+            } 
+        } while(game.isPlayed(x)) ;
         game.setGame(x,'o');
         game.printGame();
 
